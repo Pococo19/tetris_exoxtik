@@ -22,6 +22,7 @@ private:
     void move_row_down(int row, int num_rows);
     int num_rows;
     int num_cols;
+    int new_pos;
     int cell_size;
     char buffer[1024];
     std::vector<Color> colors;

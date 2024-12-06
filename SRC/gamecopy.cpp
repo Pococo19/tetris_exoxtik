@@ -45,19 +45,19 @@ void Game::draw()
     curr_block.draw(11, 11);
     switch(next_block.id) {
         case 3:
-            next_block.draw(275, 310);
+            next_block.draw(275 , 310);
             break;
         case 7:
-            next_block.draw(260, 320);
+            next_block.draw(260 , 320);
             break;
         case 4:
-            next_block.draw(260, 320);
+            next_block.draw(260 , 320);
             break;
         case 2:
-            next_block.draw(305, 325);
+            next_block.draw(305 , 325);
             break;
         default:
-            next_block.draw(290, 320);
+            next_block.draw(290 , 320);
             break;
     }
 }

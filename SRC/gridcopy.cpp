@@ -6,6 +6,7 @@
 
 Grid::Grid()
 {
+    new_pos = 0;
     num_cols = 10;
     num_rows = 20;
     cell_size = 30;
@@ -36,16 +37,34 @@ void Grid::Print()
 
 void Grid::Draw()
 {
-    int cell_value = 0;
+    int window_width = GetScreenWidth();
+    int window_height = GetScreenHeight();
+    if (IsWindowResized()) {
+        int newWidth = GetScreenWidth();
+        int newHeight = GetScreenHeight();
+            if (newWidth == 2548 && newHeight == 1359)
+                new_pos = 300;
+            else
+                new_pos = 0;
+        }
+    float scale_x = (float)window_width / (num_cols * cell_size);
+    float scale_y = (float)window_height / (num_rows * cell_size);
+    float scale = (scale_x < scale_y) ? scale_x : scale_y;
+    float scaled_cell_size = cell_size * scale;
 
     for (int i = 0; i < num_rows; i++) {
         for (int j = 0; j < num_cols; j++) {
-            cell_value = grid[i][j];
-            DrawRectangle(j * cell_size + 11, i * cell_size + 11, cell_size - 1, cell_size - 1, colors[cell_value]);
+            int cell_value = grid[i][j];
+            DrawRectangle(
+                (j * scaled_cell_size + new_pos + 11)  * scale,         // X position scaled
+                (i * scaled_cell_size + new_pos + 11)  * scale,         // Y position scaled
+                (scaled_cell_size + new_pos - 1) * scale,         // Width scaled
+                (scaled_cell_size + new_pos - 1) * scale,         // Height scaled
+                colors[cell_value]            // Cell color
+            );
         }
     }
 }
-
 bool Grid::outside_cell(int row, int cols)
 {
     if (row >= 0 && row < num_rows && cols >= 0 && cols < num_cols)

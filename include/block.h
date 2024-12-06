@@ -24,6 +24,7 @@ public:
 
 private:
     int cell_size;
+    int new_pos;
     int rotation_state;
     std::vector<Color> colors;
     int row_offset;

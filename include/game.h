@@ -28,6 +28,7 @@ public:
     bool skip;
     bool start;
     int game_score;
+    float g_scale;
     Music music;
     Grid grid;
 
