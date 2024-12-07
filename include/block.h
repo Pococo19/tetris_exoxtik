@@ -24,6 +24,8 @@ public:
 
 private:
     int cell_size;
+    int window_width;
+    int window_height;
     int new_pos;
     int rotation_state;
     std::vector<Color> colors;

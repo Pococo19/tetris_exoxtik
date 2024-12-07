@@ -33,6 +33,7 @@ public:
     Grid grid;
 
 private:
+    int new_pos;
     void rotate_block();
     void reset_game();
     void update_score(int line_cleared, int basic_points);

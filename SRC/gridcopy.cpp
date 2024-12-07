@@ -6,6 +6,8 @@
 
 Grid::Grid()
 {
+    window_width = GetScreenWidth();
+    window_height = GetScreenHeight();
     new_pos = 0;
     num_cols = 10;
     num_rows = 20;
@@ -37,29 +39,28 @@ void Grid::Print()
 
 void Grid::Draw()
 {
-    int window_width = GetScreenWidth();
-    int window_height = GetScreenHeight();
-    if (IsWindowResized()) {
-        int newWidth = GetScreenWidth();
-        int newHeight = GetScreenHeight();
-            if (newWidth == 2548 && newHeight == 1359)
-                new_pos = 300;
-            else
-                new_pos = 0;
-        }
     float scale_x = (float)window_width / (num_cols * cell_size);
     float scale_y = (float)window_height / (num_rows * cell_size);
-    float scale = (scale_x < scale_y) ? scale_x : scale_y;
+    float scale = std::min(scale_x, scale_y);
+    if (IsWindowFullscreen()) {
+        window_width = 1700;
+        window_height = 1300;
+        scale = scale / 1.2;
+        new_pos = 500;
+    }
+    else {
+        new_pos = 0;
+        scale = 1.0f;
+    }
     float scaled_cell_size = cell_size * scale;
-
     for (int i = 0; i < num_rows; i++) {
         for (int j = 0; j < num_cols; j++) {
             int cell_value = grid[i][j];
             DrawRectangle(
-                (j * scaled_cell_size + new_pos + 11)  * scale,         // X position scaled
-                (i * scaled_cell_size + new_pos + 11)  * scale,         // Y position scaled
-                (scaled_cell_size + new_pos - 1) * scale,         // Width scaled
-                (scaled_cell_size + new_pos - 1) * scale,         // Height scaled
+                j * scaled_cell_size + new_pos + 11,        // X position scaled
+                i * scaled_cell_size + 11 ,        // Y position scaled
+                (scaled_cell_size - 1),        // Width scaled
+                (scaled_cell_size - 1),        // Height scaled
                 colors[cell_value]            // Cell color
             );
         }

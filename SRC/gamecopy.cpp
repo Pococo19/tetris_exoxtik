@@ -5,6 +5,7 @@
 
 Game::Game()
 {
+    new_pos = 0;
     grid = Grid();
     blocks = get_all_blocks();
     curr_block = get_random_block();
@@ -41,23 +42,29 @@ std::vector<Block> Game::get_all_blocks()
 
 void Game::draw()
 {
+    int y_pos = 0;
+    if (IsWindowFullscreen()) {
+        new_pos = 410;
+        y_pos = 220;
+    } else
+        new_pos = 0;
     grid.Draw();
     curr_block.draw(11, 11);
     switch(next_block.id) {
         case 3:
-            next_block.draw(275 , 310);
+            next_block.draw(275 + new_pos , 310 + y_pos);
             break;
         case 7:
-            next_block.draw(260 , 320);
+            next_block.draw(260 + new_pos, 320 + y_pos);
             break;
         case 4:
-            next_block.draw(260 , 320);
+            next_block.draw(260 + new_pos, 320 + y_pos);
             break;
         case 2:
-            next_block.draw(305 , 325);
+            next_block.draw(305 + new_pos, 325 + y_pos);
             break;
         default:
-            next_block.draw(290 , 320);
+            next_block.draw(290+ new_pos, 320 + y_pos);
             break;
     }
 }
