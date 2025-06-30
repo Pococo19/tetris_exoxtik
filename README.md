@@ -65,13 +65,5 @@ git clone --recurse-submodules git@github.com:Pococo19/tetris_exoxtik.git
 
 **Luka Vujanovic**  
 Student at **EPITECH Strasbourg**  
-[LinkedIn](https://www.linkedin.com) *(add your profile link if desired)*
-
----
-
-## 📢 Acknowledgements
-
-Thanks to the members of **Pococo Studios** and everyone who supported me during this project.  
-This project shows what a motivated student can achieve through self-learning!
 
 ---
