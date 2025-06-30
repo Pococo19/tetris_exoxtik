@@ -47,7 +47,7 @@ git clone --recurse-submodules git@github.com:Pococo19/tetris_exoxtik.git
 
 ## 📸 Preview
 
-![image](https://github.com/user-attachments/assets/d759c083-4e07-4dc7-988a-2efc1fd23593)
+![image](https://github.com/user-attachments/assets/2d09c2df-2162-446a-9998-cbd99e11673c)
 
 ---
 
