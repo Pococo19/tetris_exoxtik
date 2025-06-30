@@ -10,7 +10,8 @@ Then run "script.sh" and wait the instructions :))
 
 (this project was used as demonstration of students work on a Epitech JPO)
 
-This project was carried out during the October–November period, as part of my second-year internship.
+This project was carried out during the October–November 2025 period, as part of my second-year internship.
 I decided to learn C++ on my own, along with object-oriented programming, and to create a proper TETRIS game that could be useful for an Arcade Project or demonstration.
 
-VUJANOVIC Luka.
+VUJANOVIC Luka
+EPITECH Strasbourg Student.
